@@ -1,3 +1,26 @@
-<h1>
-  {{title}}
-</h1>
+<md-sidenav-container fullscreen>
+  <md-toolbar color="primary">
+    <button md-icon-button (click)="sidenav.open()">
+        <md-icon>menu</md-icon>
+  </button>
+    <span>
+      WMP Spotify Redux Player
+  </span>
+  </md-toolbar>
+  <md-sidenav class="sidenav" #sidenav>
+    <!--<a md-list-item [routerLink]="routerLink" (click)="activate.emit()">
+      <md-icon md-list-icon>{{ icon }}</md-icon>
+      <span md-line><ng-content></ng-content></span>
+      <span md-line class="secondary">{{ hint }}</span>
+    </a>-->
+    <md-list>
+      <a md-list-item>
+        <md-icon md-list-icon>library_music</md-icon>
+        <span md-line>Collection</span>
+        <span md-line class="secondary">View your favorite artists</span>
+      </a>
+    </md-list>
+  </md-sidenav>
+  <router-outlet>
+  </router-outlet>
+</md-sidenav-container>
