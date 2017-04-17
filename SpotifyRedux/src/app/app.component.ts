@@ -7,12 +7,10 @@ import { MdSidenav } from '@angular/material';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  isOpen = false;
-
   @ViewChild(MdSidenav)
-  lol: MdSidenav;
+  nav: MdSidenav;
 
   closeSidenav() {
-    this.lol.close();
+    this.nav.close();
   }
 }
