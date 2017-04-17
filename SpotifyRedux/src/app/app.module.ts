@@ -9,10 +9,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PathNotFoundComponent } from './path-not-found/path-not-found.component';
 
+import 'hammerjs';
+
 @NgModule({
   declarations: [
     AppComponent,
-    PathNotFoundComponent
+    PathNotFoundComponent,
   ],
   imports: [
     BrowserModule,
