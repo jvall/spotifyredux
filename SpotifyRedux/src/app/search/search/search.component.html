@@ -7,3 +7,7 @@
     <md-spinner [class.show]="searching"></md-spinner>
   </md-card-content>
 </md-card>
+
+<div class="search-container">
+  <artist-card *ngFor="let artist of artists" [artist]="artist"></artist-card>
+</div>

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { MaterialModule } from '@angular/material';
+import { ArtistCardComponent } from './artist-card/artist-card.component';
 
 
 @NgModule({
@@ -11,8 +12,9 @@ import { MaterialModule } from '@angular/material';
   ],
   exports: [
     CommonModule,
-    MaterialModule
+    MaterialModule,
+    ArtistCardComponent
   ],
-  declarations: []
+  declarations: [ArtistCardComponent]
 })
 export class SharedModule { }

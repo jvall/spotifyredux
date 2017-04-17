@@ -1,0 +1,18 @@
+<md-card>
+  <md-card-header>
+    <md-card-title>{{artist.name}}</md-card-title>
+    <md-card-subtitle>GENRES</md-card-subtitle>
+  </md-card-header>
+  <img md-card-image *ngIf="artist.images[0] && artist.images[0].url" [src]="artist.images[0].url">
+  <md-card-footer class="footer">
+    RATING GOES HERE
+  </md-card-footer>
+  <md-card-actions>
+    <!--<button md-raised-button color="warn">
+        Remove Book from Collection
+    </button>-->
+    <button md-raised-button color="primary">
+      Add Book to Collection
+    </button>
+  </md-card-actions>
+</md-card>

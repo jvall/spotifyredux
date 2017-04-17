@@ -1,0 +1,44 @@
+/*:host {
+    text-align: center;
+    display: inline-flex;
+    justify-content: center;
+    margin: 75px 30px;
+}
+
+:host {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}*/
+
+:host {
+    display: flex;
+    justify-content: center;
+    margin: 75px 30px;
+}
+
+md-card {
+    max-width: 300px;
+}
+
+md-card-title-group {
+    margin-left: 0;
+}
+
+img {
+    height: 300px;
+    object-fit: cover;
+}
+
+md-card-content {
+    margin: 15px 0 50px;
+}
+
+md-card-actions {
+    margin: 25px 0 0 !important;
+}
+
+md-card-footer {
+    padding: 0 25px 25px;
+    position: relative;
+}

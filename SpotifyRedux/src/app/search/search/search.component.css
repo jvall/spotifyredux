@@ -23,3 +23,10 @@ md-spinner {
 md-spinner.show {
     opacity: 1.0;
 }
+
+.search-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: row;
+}
