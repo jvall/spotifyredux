@@ -8,10 +8,14 @@ import {
 import { PathNotFoundComponent } from './path-not-found/path-not-found.component';
 
 const routes: Routes = [
-    { path: '', pathMatch: 'full', redirectTo: '/collection' },
+    { path: '', pathMatch: 'full', redirectTo: '/search' },
     {
         path: 'collection',
         loadChildren: 'app/collection/collection.module#CollectionModule',
+    },
+    {
+        path: 'search',
+        loadChildren: 'app/search/search.module#SearchModule',
     },
     { path: '**', pathMatch: 'full', component: PathNotFoundComponent }
 ];

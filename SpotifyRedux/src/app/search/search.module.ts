@@ -7,7 +7,6 @@ import { SearchComponent } from './search/search.component';
 
 @NgModule({
   imports: [
-    CommonModule,
     SharedModule,
     SearchRoutingModule,
   ],

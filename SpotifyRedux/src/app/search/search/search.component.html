@@ -1,8 +1,8 @@
 <md-card>
-  <md-card-title>Find a Book</md-card-title>
+  <md-card-title>Find a Artist</md-card-title>
   <md-card-content>
     <md-input-container>
-      <input mdInput placeholder="Search for a book" [value]="query" (keyup)="search($event.target.value)">
+      <input mdInput #searchInput placeholder="Search for an artist" (keyup)="searchKeyed(searchInput.value)">
     </md-input-container>
     <md-spinner [class.show]="searching"></md-spinner>
   </md-card-content>
