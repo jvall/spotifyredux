@@ -24,14 +24,11 @@ import { Artist } from '../../models/artist';
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.css'],
   animations: [
-    trigger('flyInOut', [
-      transition('void => *', [
-        style({ transform: 'translateX(-100%)' }),
-        animate(100)
-      ]),
-      transition('* => void', [
-        animate(100, style({ transform: 'translateX(100%)' }))
-      ])
+    trigger('artistAppear', [
+      state('void', style({ transform: 'scale(0)' })),
+      state('*', style({ transform: 'scale(1.1)' })),
+      transition('void => *', animate('100ms ease-in')),
+      transition('* => void', animate('100ms ease-out'))
     ])
   ]
 })

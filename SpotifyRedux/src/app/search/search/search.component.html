@@ -9,5 +9,5 @@
 </md-card>
 
 <div class="search-container">
-  <artist-card *ngFor="let artist of (artists$ | async)" [artist]="artist" [@flyInOut]="'in'"></artist-card>
+  <artist-card *ngFor="let artist of (artists$ | async)" [artist]="artist" [@artistAppear]="'in'"></artist-card>
 </div>
