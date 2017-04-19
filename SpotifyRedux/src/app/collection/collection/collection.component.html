@@ -1,3 +1,5 @@
-<p>
-  collection works!
-</p>
+<md-card>
+  <md-card-title>My Collection</md-card-title>
+</md-card>
+
+<artist-card *ngFor="let artist of (artists$ | async)" [artist]="artist" [@artistAppear]=""></artist-card>

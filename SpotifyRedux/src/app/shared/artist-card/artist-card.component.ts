@@ -1,11 +1,14 @@
 import {
   Component,
-  Input
+  Input,
+  ChangeDetectionStrategy
 } from '@angular/core';
+
 import { Artist } from '../../models/artist';
 
 @Component({
   selector: 'artist-card',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './artist-card.component.html',
   styleUrls: ['./artist-card.component.css']
 })

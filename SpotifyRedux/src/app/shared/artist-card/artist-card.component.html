@@ -1,7 +1,7 @@
-<md-card>
+<md-card *ngIf="artist">
   <md-card-header>
     <md-card-title>{{artist.name}}</md-card-title>
-    <md-card-subtitle>GENRES</md-card-subtitle>
+    <md-card-subtitle>{{artist.genres | joinGenres}}</md-card-subtitle>
   </md-card-header>
   <img md-card-image [src]="artist.images[0]?.url || defaultImgUrl">
   <md-card-footer class="footer">

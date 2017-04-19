@@ -7,6 +7,7 @@ import { storeFreeze } from 'ngrx-store-freeze';
 import { environment } from '../../environments/environment';
 import * as fromArtist from './artist';
 import * as fromSearch from './search';
+import * as fromCollection from './collection';
 
 /**
  * Define overall application state, i.e. its "database"
@@ -15,6 +16,7 @@ import * as fromSearch from './search';
 export interface State {
     artists: fromArtist.State;
     search: fromSearch.State;
+    collection: fromCollection.State;
 }
 
 /**
@@ -24,6 +26,7 @@ export interface State {
 const reducers = {
     search: fromSearch.reducer,
     artists: fromArtist.reducer,
+    collection: fromCollection.reducer
 };
 
 const developmentReducer: ActionReducer<State> = compose(storeFreeze, combineReducers)(reducers);
@@ -65,3 +68,23 @@ export const getSearchLoading = createSelector(getSearchState, fromSearch.getLoa
 export const getSearchResults = createSelector(getArtistEntities, getSearchArtistIds, (artists, searchIds) => {
     return searchIds.map(id => artists[id]);
 });
+
+
+/** 
+ * Collection selectors
+ */
+
+export const getCollectionState = (state: State) => state.collection;
+
+export const getCollectionLoaded = createSelector(getCollectionState, fromCollection.getLoaded);
+export const getCollectionLoading = createSelector(getCollectionState, fromCollection.getLoading);
+export const getCollectionArtistIds = createSelector(getCollectionState, fromCollection.getIds);
+
+export const getArtistCollection = createSelector(getArtistEntities, getCollectionArtistIds, (entities, ids) => {
+    return ids.map(id => entities[id]);
+});
+
+export const isSelectedBookInCollection = createSelector(getCollectionArtistIds, getSelectedArtistId, (ids, selected) => {
+    return ids.indexOf(selected) > -1;
+});
+

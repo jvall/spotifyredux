@@ -2,12 +2,12 @@
   <md-card-title>Find a Artist</md-card-title>
   <md-card-content>
     <md-input-container>
-      <input mdInput #searchInput placeholder="Search for an artist" (keyup)="searchKeyed(searchInput.value)">
+      <input mdInput #searchInput placeholder="Search for an artist" [value]="searchQuery$ | async" (keyup)="searchKeyed(searchInput.value)">
     </md-input-container>
-    <!--<md-spinner [class.show]="loading$ | async"></md-spinner>-->
+    <md-spinner [class.show]="(loading$ | async) || false"></md-spinner>
   </md-card-content>
 </md-card>
 
 <div class="search-container">
-  <artist-card *ngFor="let artist of (artists$ | async)" [artist]="artist" [@artistAppear]="'in'"></artist-card>
+  <artist-card *ngFor="let artist of (artists$ | async)" [artist]="artist"></artist-card>
 </div>
