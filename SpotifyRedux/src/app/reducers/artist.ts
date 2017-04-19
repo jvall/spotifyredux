@@ -2,6 +2,7 @@ import { ActionReducer, Action } from '@ngrx/store';
 import { createSelector } from 'reselect';
 
 import * as artist from '../actions/artist';
+import * as collection from '../actions/collection';
 import { Artist } from '../models/artist';
 
 export interface State {
@@ -18,7 +19,8 @@ export const initialState: State = {
 
 export function reducer(state = initialState, action: Action): State {
     switch (action.type) {
-        case artist.ActionTypes.SEARCH_COMPLETE: {
+        case artist.ActionTypes.SEARCH_COMPLETE:
+        case collection.ActionTypes.LOAD_SUCCESS: {
             const artists = action.payload;
             const newArtists = artists.filter(artist => !state.entities[artist.id]);
 

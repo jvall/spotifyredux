@@ -7,5 +7,4 @@ export interface Artist {
         url: string;
     }[];
     genres: string[];
-    rating?: number;
 }

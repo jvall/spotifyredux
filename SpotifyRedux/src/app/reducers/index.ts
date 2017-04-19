@@ -84,6 +84,7 @@ export const getArtistCollection = createSelector(getArtistEntities, getCollecti
     return ids.map(id => entities[id]);
 });
 
+
 export const isSelectedBookInCollection = createSelector(getCollectionArtistIds, getSelectedArtistId, (ids, selected) => {
     return ids.indexOf(selected) > -1;
 });
