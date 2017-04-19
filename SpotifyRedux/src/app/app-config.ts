@@ -1,5 +1,5 @@
 import { InjectionToken } from '@angular/core';
-import { AppConfig } from './models/app-config';
+import { AppConfig } from './app-config.interface';
 
 export const SPOTIFY_DI_CONFIG: AppConfig = {
     spotifyUrl: 'https://api.spotify.com/v1',

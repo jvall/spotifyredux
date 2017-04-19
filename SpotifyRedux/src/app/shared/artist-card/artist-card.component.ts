@@ -13,5 +13,7 @@ export class ArtistCardComponent {
   @Input()
   artist: Artist;
 
+  defaultImgUrl = "/assets/defaultartistpic.png";
+
   constructor() { }
 }

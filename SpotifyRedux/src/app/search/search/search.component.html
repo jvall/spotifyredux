@@ -4,10 +4,10 @@
     <md-input-container>
       <input mdInput #searchInput placeholder="Search for an artist" (keyup)="searchKeyed(searchInput.value)">
     </md-input-container>
-    <md-spinner [class.show]="searching"></md-spinner>
+    <!--<md-spinner [class.show]="loading$ | async"></md-spinner>-->
   </md-card-content>
 </md-card>
 
 <div class="search-container">
-  <artist-card *ngFor="let artist of artists" [artist]="artist"></artist-card>
+  <artist-card *ngFor="let artist of (artists$ | async)" [artist]="artist" [@flyInOut]="'in'"></artist-card>
 </div>

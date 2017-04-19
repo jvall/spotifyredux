@@ -1,50 +1,56 @@
 import {
   Component,
-  OnInit,
-  OnDestroy
+  OnInit
 } from '@angular/core';
-import { Subject, Subscription } from 'rxjs/Rx';
+import {
+  trigger,
+  state,
+  style,
+  animate,
+  transition
+} from '@angular/animations';
 
-import { SpotifyService } from '../../services/spotify.service';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/let';
+import 'rxjs/add/operator/take';
+
+import * as fromRoot from '../../reducers';
+import * as artistActions from '../../actions/artist';
 import { Artist } from '../../models/artist';
 
 @Component({
   selector: 'search',
   templateUrl: './search.component.html',
-  styleUrls: ['./search.component.css']
+  styleUrls: ['./search.component.css'],
+  animations: [
+    trigger('flyInOut', [
+      transition('void => *', [
+        style({ transform: 'translateX(-100%)' }),
+        animate(100)
+      ]),
+      transition('* => void', [
+        animate(100, style({ transform: 'translateX(100%)' }))
+      ])
+    ])
+  ]
 })
-export class SearchComponent implements OnInit, OnDestroy {
+export class SearchComponent implements OnInit {
 
-  searchSub: Subscription;
-  searchStream$ = new Subject<string>();
+  searchQuery$: Observable<string>;
+  artists$: Observable<Artist[]>;
+
   searching = false;
-  artists: Artist[];
 
-  constructor(private _spotifyService: SpotifyService) { }
+  constructor(private _store: Store<fromRoot.State>) { }
 
   ngOnInit() {
-    this.searchSub = this.searchStream$
-      .debounceTime(500)
-      .distinctUntilChanged()
-      .filter(val => val != "")
-      .subscribe(query => this.search(query));
-  }
-
-  ngOnDestroy() {
-    this.searchSub.unsubscribe();
+    this.searchQuery$ = this._store.select(fromRoot.getSearchQuery).take(1);
+    this.artists$ = this._store.select(fromRoot.getSearchResults);
+    // this.loading$ = this._store.select(fromRoot.getSearchLoading);
   }
 
   searchKeyed(query: string) {
-    this.searchStream$.next(query);
-  }
-
-  private search(query: string) {
-    this.searching = true;
-
-    this._spotifyService.searchArtists(query)
-      .subscribe(artists => {
-        this.searching = false;
-        this.artists = artists;
-      });
+    this._store.dispatch(new artistActions.SearchAction(query));
   }
 }

@@ -4,8 +4,8 @@ import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/mergeMap';
 
 import { Artist } from '../models/artist';
-import { AppConfig } from '../models/app-config';
-import { APP_CONFIG } from '../app.config';
+import { AppConfig } from '../app-config.interface';
+import { APP_CONFIG } from '../app-config';
 
 @Injectable()
 export class SpotifyService {

@@ -3,7 +3,7 @@
     <md-card-title>{{artist.name}}</md-card-title>
     <md-card-subtitle>GENRES</md-card-subtitle>
   </md-card-header>
-  <img md-card-image *ngIf="artist.images[0] && artist.images[0].url" [src]="artist.images[0].url">
+  <img md-card-image [src]="artist.images[0]?.url || defaultImgUrl">
   <md-card-footer class="footer">
     RATING GOES HERE
   </md-card-footer>
