@@ -9,11 +9,11 @@
   </md-card-footer>
   <md-card-actions>
     <button *ngIf="(isInCollection$ | async); else addButton" (click)="removeClicked()" md-raised-button color="warn">
-        Remove Book from Collection
+        Remove Artist from Collection
     </button>
     <ng-template #addButton>
       <button (click)="addClicked()" md-raised-button color="primary">
-        Add Book to Collection
+        Add Artist to Collection
       </button>
     </ng-template>
   </md-card-actions>
